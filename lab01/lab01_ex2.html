@@ -2,51 +2,82 @@
 <html>
   <head>
     <style>
-      table, td, th {
+      td, th{
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: left;
+      }
+
+      .header{ 
+        width: 100%;
         border: 2px solid black;
         border-collapse: collapse;
-        vertical-align: top;
+        border-bottom: 2px solid white;
+      }
+
+      .content{
+        width: 100%;
+        border: 2px solid black;
+        border-collapse: collapse;
+      }
+
+      .content->td{
+        size: 100px;
+      }
+
+      #img01 {
+        width: 100px;
+        height: auto;
       }
     </style>
   </head>
   <body>
-    <table style="width: 100%;">
-      <tr style="height: 100px;">
-        <td style="width: 60%; text-align: left;">Personal Details</td>
-        <td style="width: 40%; text-align: center;">Image</td>
+    <table class="header">
+      <tr>
+        <td style="width: 75%; vertical-align: top;">
+          <strong>Personal Details</strong> <br/> <br/>
+          Full name&emsp;: Phạm Hồ Nguyên <br/>
+          Date of birth&emsp;: 01/01/2000 <br/>
+          Class&emsp;: K63/IT1-04 <br/>
+
+        </td>
+        <td style="width: 25%; text-align: center;">
+          <strong>Image</strong> <br/>
+          <img src = "img/hust.jpg" id="img01" >
+        </td>
       </tr>
     </table>
-    <table style="width: 100%;">
+    <table class="content">
       <tr>
-        <td style="width: 30%;">Education process</td>
-        <td style="width: 70%;"></td>
+        <td style="width: 30%;"><strong>Education process</strong></td>
+        <td style="width: 70%;">Junior</td>
       </tr>
       <tr>
-        <td>Working process</td>
+        <td><strong>Working process</strong></td>
+        <td>Intern</td>
+      </tr>
+      <tr>
+        <td><strong>Activities</strong></td>
+        <td>No information</td>
+      </tr>
+      <tr>
+        <td><strong>Skills</strong></td>
+        <td>Programming, Presentation, English</td>
+      </tr>
+      <tr>
+        <td><strong>Experiences</strong></td>
         <td></td>
       </tr>
       <tr>
-        <td>Society activities</td>
+        <td><strong>Certification</strong></td>
         <td></td>
       </tr>
       <tr>
-        <td>Skills</td>
-        <td></td>
+        <td><strong>Hobbies</strong></td>
+        <td>Travelling, Reading</td>
       </tr>
       <tr>
-        <td>Experiences</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Certification</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Hobbies</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Desire</td>
+        <td><strong>Desire</strong></td>
         <td></td>
       </tr>
     </table>
