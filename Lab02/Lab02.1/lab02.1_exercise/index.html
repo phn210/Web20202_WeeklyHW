@@ -37,13 +37,26 @@
             <div><input type="checkbox" name="Hobby3" value="Cooking">Cooking</div>
             <div><input type="checkbox" name="Hobby4" value="Code">Code</div>
             <div><input type="checkbox" name="Hobby5" value="Hack">Hack</div>
-            <div><input type="checkbox" name="Hobby6">Others</div>
-            <div><input type="text" name="Hobby7" class="other-hobby"></div>
+            <div><input type="checkbox" name="Hobby6" onclick="otherHobby()">Others</div>
+            <div id="othersHobby"></div>
         </div>
         <div class="form-content">
             <input type="submit" name="Save" class="submit-content">
         </div>
     </form>
+    <script>
+        var flag = true;
+        function otherHobby(){
+            if (flag) {
+                document.getElementById("othersHobby").innerHTML = '<input type="text" name="Hobby7" class="other-hobby">';
+                flag = false;
+            } 
+            else {
+                document.getElementById("othersHobby").innerHTML = '';
+                flag = true;
+            }
+        }
+    </script>
 </body>
 
 </html>
