@@ -16,8 +16,8 @@
             $hour = (isset($_GET["hour"]) == true) ? $_GET["hour"]: null;
             $minute = (isset($_GET["minute"]) == true) ? $_GET["minute"]: null;
             $second = (isset($_GET["second"]) == true) ? $_GET["second"]: null;
-        
         ?>
+            
         <table>
             <tr>
                 <td>Your name:</td>
