@@ -43,7 +43,7 @@ h2 {
 }
 @media (max-width: 46.1875em) {
     h2 {
-        font-size: 28px;
+        font-size: 24px;
     }
     .form-content {
         display: flex;
@@ -55,5 +55,7 @@ h2 {
         width: 102%;
         height: 30px;
         margin: 20px 0 0;
+        overflow-x: scroll;
+        overflow-y: hidden;
     }
 }
