@@ -24,3 +24,33 @@ h2 {
     height: 30px;
     margin: 20px 0 0 20px;
 }
+/* Responsive form */
+@media (min-width: 46.35em) and (max-width: 64em) {
+    .form-content {
+        display: flex;
+        justify-content: center;
+        margin: 10px 100px;
+        flex-direction: column;
+    }
+    .submit-content {
+        width: 101%;
+        height: 30px;
+        margin: 20px 0 0;
+    }
+}
+@media (max-width: 46.1875em) {
+    h2 {
+        font-size: 28px;
+    }
+    .form-content {
+        display: flex;
+        justify-content: center;
+        margin: 10px 10px;
+        flex-direction: column;
+    }
+    .submit-content {
+        width: 102%;
+        height: 30px;
+        margin: 20px 0 0;
+    }
+}
