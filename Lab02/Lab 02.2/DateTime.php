@@ -20,7 +20,7 @@
         <table>
             <tr>
                 <td>Your name:</td>
-                <td colspan="3"><input type = "text" size = "18" maxlength="20" name = "userName" value = 
+                <td colspan="3"><input type = "text" maxlength="20"  size="16" required name = "userName" value = 
                 "<?php
                     if ($userName != null)
                         print($userName);
@@ -31,7 +31,8 @@
 
             <tr>
                 <td>Date:</td>
-                <td><select name="month">
+                <td>
+                    <select name="month">
                     <?php
                     for ($i = 1; $i < 13; $i++) {
                         if ($i == $month)
@@ -41,66 +42,69 @@
                     }
                         
                     ?>
-                </td>
+                
+                    </select>
+                    <select name="day">
+                        <?php   
+                        for ($i = 1; $i < 32; $i++) {
+                            if ($i == $day)
+                                print("<option selected>$i</option>");
+                            else
+                                print("<option>$i</option>");
+                        }
+                            
+                        ?>
+                    </select>
 
-                <td><select name="day">
-                    <?php
-                    for ($i = 1; $i < 32; $i++) {
-                        if ($i == $day)
-                            print("<option selected>$i</option>");
-                        else
-                            print("<option>$i</option>");
-                    }
-                        
-                    ?>
-                </td>
-
-                <td><select name="year">
-                    <?php
-                    for ($i = 2021; $i > 1500; $i--) {
-                        if ($i == $year)
-                            print("<option selected>$i</option>");
-                        else
-                            print("<option>$i</option>");
-                    }
-                        
-                    ?>
+                    <select name="year">
+                        <?php
+                        for ($i = 2021; $i > 1500; $i--) {
+                            if ($i == $year)
+                                print("<option selected>$i</option>");
+                            else
+                                print("<option>$i</option>");
+                        }
+                            
+                        ?>
+                    </select>
                 </td>
             </tr>
 
             <tr>
                 <td>Time:</td>
-                <td><select name="hour">
-                    <?php
-                    for ($i = 0; $i < 24; $i++) {
-                        if ($i == $hour)
-                            print("<option selected>$i</option>");
-                        else
-                            print("<option>$i</option>");
-                    }
-                    ?>
-                </td>
+                <td>
+                    <select name="hour">
+                        <?php
+                        for ($i = 0; $i < 24; $i++) {
+                            if ($i == $hour)
+                                print("<option selected>$i</option>");
+                            else
+                                print("<option>$i</option>");
+                        }
+                        ?>
+                    </select>
 
-                <td><select name="minute">
-                    <?php
-                    for ($i = 0; $i < 61; $i++) {
-                        if ($i == $minute)
-                            print("<option selected>$i</option>");
-                        else
-                            print("<option>$i</option>");
-                    }
-                    ?>
-                </td>
+                    <select name="minute">
+                        <?php
+                        for ($i = 0; $i < 61; $i++) {
+                            if ($i == $minute)
+                                print("<option selected>$i</option>");
+                            else
+                                print("<option>$i</option>");
+                        }
+                        ?>
+                    </select>
 
-                <td><select name="second">
-                    <?php
-                    for ($i = 0; $i < 61; $i++) {
-                        if ($i == $second)
-                            print("<option selected>$i</option>");
-                        else
-                            print("<option>$i</option>");
-                    }
-                    ?>
+                    <select name="second">
+                        <?php
+                        for ($i = 0; $i < 61; $i++) {
+                            if ($i == $second)
+                                print("<option selected>$i</option>");
+                            else
+                                print("<option>$i</option>");
+                        }
+                        ?>
+                    </select>
                 </td>
             </tr>
 
