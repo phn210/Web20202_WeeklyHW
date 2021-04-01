@@ -39,23 +39,23 @@
       <br>
       <div class="form-content">
         <label>Full name:</label>
-        <input type="text" placeholder="Full Name" name="FullName">
+        <input type="text" placeholder="Full Name" required name="FullName">
       </div>
       <div class="form-content">
         <label>Date of Birth:</label>
-        <input type="date" name="DoB">
+        <input type="date" required name="DoB">
       </div>
       <div class="form-content">
         <label>Email:</label>
-        <input type="email" placeholder="Your Email" name="Email">
+        <input type="email" placeholder="Your Email" required name="Email">
       </div>
       <div class="form-content">
         <label>Phone:</label>
-        <input type="tel" placeholder="Your Phone Number" name="Phone" pattern="[0]{1}[0-9]{2}-[0-9]{3}-[0-9]{4}">
+        <input type="tel" placeholder="Your Phone Number" required name="Phone" pattern="[0]{1}[0-9]{2}-[0-9]{3}-[0-9]{4}">
       </div>
       <div class="form-content">
         <label>Organization:</label>
-        <input type="text" placeholder="Your Organization" name="Organization">
+        <input type="text" placeholder="Your Organization" required name="Organization">
       </div>
       <div class="button">
         <input type="submit" value="Click to submit">
