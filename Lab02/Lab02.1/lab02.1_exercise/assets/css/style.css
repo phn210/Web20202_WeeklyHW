@@ -24,6 +24,9 @@ h2 {
     height: 30px;
     margin: 20px 0 0 20px;
 }
+.submit-content:hover {
+    cursor: pointer;
+}
 /* Responsive form */
 @media (min-width: 46.35em) and (max-width: 64em) {
     .form-content {
