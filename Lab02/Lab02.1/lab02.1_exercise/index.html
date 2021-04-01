@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <form action="process.php" method="POST">
+        <h2>Khảo sát thông tin cá nhân</h2>
+        <div class="form-content">
+            Name:
+            <input type="text" name="userName" required class="input-content">
+        </div>
+        <div class="form-content">
+            Age:
+            <input type="number" name="age" min="0" required class="input-content">
+        </div>
+        <div class="form-content">
+            E-Mail:
+            <input type="email" name="email" required class="input-content">
+        </div>
+        <div class="form-content">
+            Class:
+            <input type="text" name="classes" required class="input-content">
+        </div>
+        <div class="form-content">
+            University:
+            <input type="text" name="university" required class="input-content">
+        </div>
+        <div class="form-content">
+            <div>Hobby:</div>
+            <div><input type="checkbox" name="Hobby1" value="Sports">Sports</div>
+            <div><input type="checkbox" name="Hobby2" value="Reading books">Reading books</div>
+            <div><input type="checkbox" name="Hobby3" value="Cooking">Cooking</div>
+            <div><input type="checkbox" name="Hobby4" value="Code">Code</div>
+            <div><input type="checkbox" name="Hobby5" value="Hack">Hack</div>
+            <div><input type="checkbox" name="Hobby6">Others</div>
+            <div><input type="text" name="Hobby7" class="other-hobby"></div>
+        </div>
+        <div class="form-content">
+            <input type="submit" name="Save" class="submit-content">
+        </div>
+    </form>
+</body>
+
+</html>
