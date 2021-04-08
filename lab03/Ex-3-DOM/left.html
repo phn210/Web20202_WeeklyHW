@@ -7,17 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data</title>
   <style>
-    html, body {
+    html,
+    body {
       font-family: Georgia, 'Times New Roman', Times, serif;
       padding: 0px 5px;
     }
-
+    
     .blog-link {
       position: absolute;
       right: 10px;
       top: 20px;
     }
-    .blog-link a{
+    
+    .blog-link a {
       text-decoration: none;
     }
   </style>
@@ -25,24 +27,23 @@
 
 <body onload="checkCookie()">
   <div class="blog-link">
-    <a href="" target="_blank" id="link">Direct to the blog.</a>
+    <a href="" target="_blank" id="link"></a>
   </div>
   <div class="blog-header">
     <h1 id='title'></h1>
     <h3 id='author'></h3>
     <p id='post-date'></p>
   </div>
-  <hr>
   <div class="blog-content">
     <p id='content'></p>
   </div>
-  
+
   <script>
     function getCookie(cname) {
       var name = cname + "=";
       var decodedCookie = decodeURIComponent(document.cookie);
       var ca = decodedCookie.split(';');
-      for(var i = 0; i < ca.length; i++) {
+      for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0) == ' ') {
           c = c.substring(1);
@@ -62,21 +63,23 @@
       var postDate = data['post-date'];
       var content = data['content'];
 
-      if (link != null && link != '') document.getElementById("link").setAttribute('href', link);
+      if (link != null && link != '') {
+        document.getElementById("link").setAttribute('href', link);
+        document.getElementById("link").innerHTML = "Direct to the blog."
+      }
       document.getElementById('title').innerHTML = title;
       document.getElementById('author').innerHTML = author;
       document.getElementById('post-date').innerHTML = postDate;
       document.getElementById('content').innerHTML = content;
-      
+
     }
+
     function checkCookie() {
-      if (document.cookie != ' ') {
+      if (document.cookie != '') {
         var data = getCookie('data');
         update(data);
       }
     }
-
-
   </script>
 </body>
 
