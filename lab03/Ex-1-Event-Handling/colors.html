@@ -1,3 +1,47 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .colored-links a {
+      text-decoration: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="colored-links">
+    <a href="" style="color: red;" onmouseover="toRed()" onmouseout="toBlack()">RED</a>
+    <a href="" style="color: green;" onmouseover="toGreen()" onmouseout="toBlack()">GREEN</a>
+    <a href="" style="color: blue;" onmouseover="toBlue()" onmouseout="toBlack()">BLUE</a>
+  </div>
+  <p id="colored-para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores quam atque totam dolores! Explicabo iusto fugit beatae tenetur reiciendis facilis! Sit est sapiente quis perferendis dignissimos sed rerum esse, recusandae quibusdam explicabo omnis
+    vel maiores cum quisquam voluptas amet necessitatibus pariatur aspernatur nihil illo harum laudantium eos quidem quas. Delectus.
+  </p>
+
+  <script>
+    var para = document.getElementById("colored-para");
+
+    function toRed() {
+      para.style.color = "red";
+    }
+
+    function toGreen() {
+      para.style.color = "green";
+    }
+
+    function toBlue() {
+      para.style.color = "blue";
+    }
+
+    function toBlack() {
+      para.style.color = "black";
+    }
+  </script>
+</body>
+
 </html>
