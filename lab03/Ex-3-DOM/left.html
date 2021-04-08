@@ -2,11 +2,84 @@
 <html>
 
 <head>
-
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    iframe {
+      border: none;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
 </head>
 
-<body>
+<body onload="checkCookie()">
+  <script>
+    function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return JSON.parse(c.substring(name.length, c.length));
+        }
+      }
+      return "";
+    }
 
+    function update(data) {
+      var body = document.querySelector('body');
+      body.innerHTML = '';
+      var link = data['link'];
+      var title = data['title'];
+      var author = data['author'];
+      var postDate = data['post-date'];
+      var content = data['content'];
+      
+      var linkNode = createNode('a', 'Go to your blog!', body, 'link');
+      if (link != null){
+        linkNode.setAttribute('href', link)
+        linkNode.setAttribute('target', '_blank');
+      }
+      body.appendChild(linkNode);
+
+      var titleNode = createNode('h1', data['title'], body, 'title');
+      body.appendChild(titleNode);
+
+      var authorNode = createNode('h3', data['author'], body, 'author');
+      body.appendChild(authorNode);
+
+      var dateNode = createNode('p', data['post-date'], body, 'post-date');
+      body.appendChild(dateNode);
+
+      var contentNode = createNode('p', data['content'], body, 'content'); 
+      body.appendChild(contentNode);
+      
+    }
+
+    function createNode(tag, text, parent, id) {
+      var element = document.createElement(tag);
+      var textNode = document.createTextNode(text);           
+      element.appendChild(textNode);
+      element.setAttribute('id', id);
+      parent.appendChild(element);
+      return element;
+    }
+
+    function checkCookie() {
+      if (document.cookie != ' ') {
+        var data = getCookie('data');
+        update(data);
+      }
+    }
+
+
+  </script>
 </body>
 
 </html>

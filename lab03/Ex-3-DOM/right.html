@@ -2,11 +2,82 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+    }
 
+    form label {
+      font-weight: bold;
+      font-style: italic;
+      font-size: 1.1rem;
+      padding: 5px 0;
+    }
+
+    form input, textarea {
+      padding: 5px;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="blog-form">
+    <form>
+      <label for="link">Link to your blog</label>
+      <input type="url" placeholder="Copy your link here" name="link" id="link">
+      <label for="title">Title</label>
+      <input type="text" placeholder="Blog's title" name="title" id="title" required>
+      <label for="author">Author</label>
+      <input type="text" placeholder="Author" name="author" id="author" required>
+      <label for="post-date">Post date</label>
+      <input type="date" name="post-date" id="post-date">
+      <label for="link">Blog's content</label>
+      <textarea name="content" id="content" cols="30" rows="20" required maxlength="2000"></textarea>
 
+      <input type="submit" id="submit" value="Submit" onsubmit="updateLeft()">
+    </form>
+  </div>
+
+  <script>
+    var today = new Date();
+    var expire = new Date(today.getTime + 24*3600*1000);
+
+    var link = document.getElementById("link");
+
+    function onHandleSubmit(event) {
+      var form = event.target;
+      var formData = {};
+      var inputs = form.querySelectorAll('input');
+      var content = form.querySelector('textarea');
+      
+      for (var i = 0; i < inputs.length; i++){
+        formData[inputs[i].name] = inputs[i].value;
+      }
+
+      formData[content.name] = content.value;
+      var jsonData = JSON.stringify(formData);
+      setCookie('data', jsonData, expire);
+
+      console.log(jsonData);
+
+      parent.updateLeft(formData);
+    }
+
+    function setCookie(cname, cvalue, cexpire) {
+      document.cookie = cname + "=" + cvalue + "; expires=" + expire + ";path=/";
+    }
+
+    function deleteCookie() {
+      document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
+
+    form = document.querySelector('form');
+    form.addEventListener("submit", onHandleSubmit);
+  </script>
 </body>
 
 </html>
