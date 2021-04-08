@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RegisterForm</title>
+    <script src="11_9.js">
+      
+    </script>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: white;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+      
+      /* Add padding to containers */
+      .container {
+        padding: 16px;
+        background-color: white;
+      }
+      
+      /* Full-width input fields */
+      input[type=text], input[type=password], input[type = tel]{
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+      }
+      
+      input[type=text]:focus, input[type=password]:focus, input[type = tel]:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+      
+      /* Overwrite default styles of hr */
+      hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+      }
+      
+      /* Set a style for the submit button */
+      .registerbtn {
+        background-color: rgb(96, 96, 224);
+        color: white;
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+      }
+      
+      .registerbtn:hover {
+        opacity: 1;
+      }
+            
+      </style>
+  </head>
+  <body>
+    <form name="RegisterForm">
+      <h1>Register Form</h1>
+      <h3>Enter your information!</h3>
+      <br>
+
+      <label for="userName"><b>User Name</label>
+        <input type="text" placeholder="Full Name" name = "userName" id = "userName" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input
+        type="password"
+        placeholder="Enter Password"
+        name="psw"
+        id="psw"
+        required
+      />
+  
+      <label for="address"><b>Address</b></label>
+      <input
+        type="text"
+        placeholder="Address"
+        name="address"
+        id="address"
+        required
+      />
+
+      <label for="email"><b>Email</b></label>
+      <input
+        type="text"
+        placeholder="Enter Email"
+        name="email"
+        id="email"
+        required
+      />
+
+      <label for="phoneNumber"><b>Phone Number</b></label>
+        <input type="tel" placeholder="Your Phone Number" name="phone" required  pattern="[0]{1}[0-9]{9}"/>
+      <hr/>
+
+      <button type="submit" class="registerbtn">Register</button>
+    </form>
+  </body>
+</html>
