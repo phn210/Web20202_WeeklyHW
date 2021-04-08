@@ -7,15 +7,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data</title>
   <style>
-    iframe {
-      border: none;
-      height: 100%;
-      width: 100%;
+    html, body {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      padding: 0px 5px;
+    }
+
+    .blog-link {
+      position: absolute;
+      right: 10px;
+      top: 20px;
+    }
+    .blog-link a{
+      text-decoration: none;
     }
   </style>
 </head>
 
 <body onload="checkCookie()">
+  <div class="blog-link">
+    <a href="" target="_blank" id="link">Direct to the blog.</a>
+  </div>
+  <div class="blog-header">
+    <h1 id='title'></h1>
+    <h3 id='author'></h3>
+    <p id='post-date'></p>
+  </div>
+  <hr>
+  <div class="blog-content">
+    <p id='content'></p>
+  </div>
+  
   <script>
     function getCookie(cname) {
       var name = cname + "=";
@@ -35,43 +56,19 @@
 
     function update(data) {
       var body = document.querySelector('body');
-      body.innerHTML = '';
       var link = data['link'];
       var title = data['title'];
       var author = data['author'];
       var postDate = data['post-date'];
       var content = data['content'];
-      
-      var linkNode = createNode('a', 'Go to your blog!', body, 'link');
-      if (link != null){
-        linkNode.setAttribute('href', link)
-        linkNode.setAttribute('target', '_blank');
-      }
-      body.appendChild(linkNode);
 
-      var titleNode = createNode('h1', data['title'], body, 'title');
-      body.appendChild(titleNode);
-
-      var authorNode = createNode('h3', data['author'], body, 'author');
-      body.appendChild(authorNode);
-
-      var dateNode = createNode('p', data['post-date'], body, 'post-date');
-      body.appendChild(dateNode);
-
-      var contentNode = createNode('p', data['content'], body, 'content'); 
-      body.appendChild(contentNode);
+      if (link != null && link != '') document.getElementById("link").setAttribute('href', link);
+      document.getElementById('title').innerHTML = title;
+      document.getElementById('author').innerHTML = author;
+      document.getElementById('post-date').innerHTML = postDate;
+      document.getElementById('content').innerHTML = content;
       
     }
-
-    function createNode(tag, text, parent, id) {
-      var element = document.createElement(tag);
-      var textNode = document.createTextNode(text);           
-      element.appendChild(textNode);
-      element.setAttribute('id', id);
-      parent.appendChild(element);
-      return element;
-    }
-
     function checkCookie() {
       if (document.cookie != ' ') {
         var data = getCookie('data');
