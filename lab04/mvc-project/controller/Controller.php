@@ -1,4 +1,6 @@
 <?php
+include_once("model/Model.php");
+
 class Controller {  
     public $model;   
   
