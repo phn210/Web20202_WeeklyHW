@@ -125,6 +125,52 @@ text-decoration:none;
 .option a:hover{ 
 background-color:#FFFF33
 }
+
+table, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: left;
+            width: 200px;
+}
+.submit-btn {
+	margin-top: 5px;
+}
+.input-text {
+	width: 200px;
+	border: none;
+}
+
+.content {
+            float:left;
+            margin: 0px 20px 50px;
+}
+tr {
+	margin-bottom: 5px;
+}
+p {
+	display: inline-block;
+	width: 100px;
+}
+.input-content {
+	width: 900px;
+	margin-left: 10px;
+}
+.scroll {
+	width: 200px;
+	height: 100px;
+	overflow: auto;
+}
+.title {
+	display: block;
+}
+.title:link {
+	text-decoration: none;
+}
+.submit {
+	position: fixed;
+	top: 350px;
+	left: 50px;
+}
 	</style>
 </head>
 

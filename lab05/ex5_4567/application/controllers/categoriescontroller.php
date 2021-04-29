@@ -16,11 +16,16 @@ class CategoriesController extends VanillaController {
 		return $this->Category->search();
 	}
 
-	function new() {
+	function findCategories ($categoryId = null) {
+		$this->Category->where('id',$categoryId);
+		return $this->Categories->search();
+	}
+
+	function add() {
 		$this->Category->id = $_POST['id'];
 		$this->Category->title = $_POST['title'];
 		$this->Category->description = $_POST['description'];
-		$this->Category->save();
+		$this->set('result', $this->Category->add());
 	}
 
 	function delete($categoryId) {

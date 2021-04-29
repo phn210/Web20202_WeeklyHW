@@ -196,6 +196,7 @@ class SQLQuery {
 
 						$fromChild .= '`'.$tableChild.'` as `'.$aliasChild.'`,';
 						$fromChild .= '`'.$joinTable.'`,';
+
 						
 						$conditionsChild .= '`'.$joinTable.'`.`'.$singularAliasChild.'_id` = `'.$aliasChild.'`.`id` AND ';
 						$conditionsChild .= '`'.$joinTable.'`.`'.strtolower($this->_model).'_id` = \''.$tempResults[$this->_model]['id'].'\'';
@@ -284,25 +285,27 @@ class SQLQuery {
 		return($result);
 	}
 
+	function run_query($query){
+		
+	}
     /** Describes a Table **/
 
 	protected function _describe() {
-		global $cache;
+		//global $cache;
 
-		$this->_describe = $cache->get('describe'.$this->_table);
+		//$this->_describe = $cache->get('describe'.$this->_table);
 
-		if (!$this->_describe) {
-			$this->_describe = array();
-			$query = 'DESCRIBE '.mysqli_real_escape_string($this->_dbHandle, $this->_table);
-			$this->_result = mysqli_query($this->_dbHandle, $query);
-			if(!$this->_result) echo mysqli_error($this->_dbHandle);
-			while ($row = mysqli_fetch_row($this->_result)) {
-				 array_push($this->_describe, $row[0]);
-			}
-
-			mysqli_free_result($this->_result);
-			$cache->set('describe'.$this->_table,$this->_describe);
+		//if (!$this->_describe) {
+		$this->_describe = array();
+		$query = 'DESCRIBE '.mysqli_real_escape_string($this->_dbHandle, $this->_table);
+		$this->_result = mysqli_query($this->_dbHandle, $query);
+		while ($row = mysqli_fetch_row($this->_result)) {
+				array_push($this->_describe, $row[0]);
 		}
+
+		mysqli_free_result($this->_result);
+		//$cache->set('describe'.$this->_table,$this->_describe);
+		//}
 
 		foreach ($this->_describe as $field) {
 			$this->$field = null;
@@ -327,38 +330,46 @@ class SQLQuery {
 		
 	}
 
-    /** Saves an Object i.e. Updates/Inserts Query **/
-
-	function save() {
+	function update() {
 		$query = '';
-		if (isset($this->id)) {
-			$updates = '';
-			foreach ($this->_describe as $field) {
-				if ($this->$field) {
-					$updates .= '`'.$field.'` = \''.mysqli_real_escape_string($this->_dbHandle, $this->$field).'\',';
-				}
+		$updates = '';
+		foreach ($this->_describe as $field) {
+			if ($this->$field) {
+				$updates .= '`'.$field.'` = \''.mysqli_real_escape_string($this->_dbHandle, $this->$field).'\',';
+			} else {
+				$updates .= '`'.$field.'` = null';
 			}
-
-			$updates = substr($updates,0,-1);
-
-			$query = 'UPDATE '.$this->_table.' SET '.$updates.' WHERE `id`=\''.mysqli_real_escape_string($this->_dbHandle, $this->id).'\'';			
-		} else {
-			$fields = '';
-			$values = '';
-			foreach ($this->_describe as $field) {
-				if ($this->$field) {
-					$fields .= '`'.$field.'`,';
-					$values .= '\''.mysqli_real_escape_string($this->_dbHandle, $this->$field).'\',';
-				}
-			}
-			$values = substr($values,0,-1);
-			$fields = substr($fields,0,-1);
-
-			$query = 'INSERT INTO '.$this->_table.' ('.$fields.') VALUES ('.$values.')';
 		}
+
+		$updates = substr($updates,0,-1);
+
+		$query = 'UPDATE '.$this->_table.' SET '.$updates.' WHERE `id`=\''.mysqli_real_escape_string($this->_dbHandle, $this->id).'\'';			
+	
 		$this->_result = mysqli_query($this->_dbHandle, $query);
 		$this->clear();
-		if ($this->_result) {
+		if (!$this->_result) {
+            /** Error Generation **/
+			return -1;
+        }
+	}
+	function add (){
+		$fields = '';
+		$values = '';
+		foreach ($this->_describe as $field) {
+			
+			if ($this->$field) {
+				$fields .= '`'.$field.'`,';
+				$values .= '\''.mysqli_real_escape_string($this->_dbHandle, $this->$field).'\',';
+			}
+		}
+		$values = substr($values,0,-1);
+		$fields = substr($fields,0,-1);
+
+		$query = 'INSERT INTO '.$this->_table.' ('.$fields.') VALUES ('.$values.')';
+	
+		$this->_result = mysqli_query($this->_dbHandle, $query);
+		$this->clear();
+		if (!$this->_result) {
             /** Error Generation **/
 			return -1;
         }
