@@ -25,7 +25,7 @@
     <form action="" method="POST">
         <table>
             <tr>
-                <th style="width:200px;">Clicks on one, or control-click on mutiple categories</th>
+                <th style="width:200px;">Clicks on a category to find business listings:</th>
             </tr>
             <tr>
                 <td><a href="" class = "title">Automative Parts and Supplies</a></td>
