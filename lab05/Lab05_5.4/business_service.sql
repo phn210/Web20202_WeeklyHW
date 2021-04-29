@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2021 at 09:54 AM
+-- Generation Time: Apr 29, 2021 at 10:02 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -24,6 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `biz_categories`
+--
+
+CREATE TABLE `biz_categories` (
+  `Business ID` int(10) NOT NULL,
+  `Category ID` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `businesses`
 --
 
@@ -36,9 +47,28 @@ CREATE TABLE `businesses` (
   `URL` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `Category ID` varchar(20) NOT NULL,
+  `Title` varchar(50) NOT NULL,
+  `Description` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `biz_categories`
+--
+ALTER TABLE `biz_categories`
+  ADD PRIMARY KEY (`Business ID`,`Category ID`),
+  ADD KEY `Category ID` (`Category ID`);
 
 --
 -- Indexes for table `businesses`
@@ -46,6 +76,24 @@ CREATE TABLE `businesses` (
 ALTER TABLE `businesses`
   ADD PRIMARY KEY (`Business ID`),
   ADD UNIQUE KEY `Business_ID_FK` (`Business ID`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`Category ID`),
+  ADD UNIQUE KEY `Category_ID_FK` (`Category ID`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `biz_categories`
+--
+ALTER TABLE `biz_categories`
+  ADD CONSTRAINT `biz_categories_ibfk_1` FOREIGN KEY (`Business ID`) REFERENCES `businesses` (`Business ID`),
+  ADD CONSTRAINT `biz_categories_ibfk_2` FOREIGN KEY (`Category ID`) REFERENCES `categories` (`Category ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
