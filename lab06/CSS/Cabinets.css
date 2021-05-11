@@ -1,0 +1,20 @@
+H1{
+    text-align: center;
+}
+P {
+    margin : 0.25in;
+    border : 0.25in solid plum;
+    padding : 0.25in;
+    background: URL(image/board.jpg);
+}
+BODY{
+    background: url(image/cloud.jpg);
+}
+.banner{
+    background:  url(image/flower1.png) repeat-x;
+    background-color: white;
+    font-size: 50 pt;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-size: 360px 199px;
+
+}
