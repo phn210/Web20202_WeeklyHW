@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First Page with CSS Box Model</title>
+    </head>
+
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .header {
+            width: 100%;
+            background: red;
+            color: white;
+        }
+
+        .content {
+            height: 500px;
+        }
+
+        .main_content {
+            float: left;
+            width: 70%;
+        }
+
+        .sidebar_content {
+            float: right;
+            width: 30%;
+            height: inherit;
+            background: yellow;
+        }
+
+        .footer {
+            width: 100%;
+            background: blue;
+            color: white;
+            clear: both;
+        }
+    </style>
+
+    <body>
+        <div class="header">Header content</div>
+        <div class="content">
+            <div class="main_content">
+                <h1>Main content</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet id harum nihil, aliquid sit porro, voluptatum iste dolores deleniti nisi assumenda iure, vero eveniet! Eum voluptatibus labore nulla cupiditate! Tempore?</p>
+            </div>
+            
+            <div class="sidebar_content">
+                <h3>Sidebar content</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.?</p>
+            </div>
+        </div>
+        <div class="footer">Footer content</div>
+    </body>
+</html>

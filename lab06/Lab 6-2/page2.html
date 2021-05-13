@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Second Page with CSS Box Model</title>
+    </head>
+
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .header {
+            width: 100%;
+            background: red;
+            color: white;
+        }
+
+        .content {
+            height: 500px;
+        }
+
+        .header_content {
+            background: green;
+            float: left;
+            width: 100%;
+            text-align: center;
+        }
+
+
+        .main_content {
+            float: left;
+            width: 100%;
+        }
+
+        .main_content h1 {
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        .sub_content {
+            float: left;
+            width: 24%;
+            height: 50%;
+            background: yellow;
+            border: 3px solid black;
+            border-left-color: transparent;
+        }
+
+        .footer {
+            width: 100%;
+            background: blue;
+            color: white;
+            clear: both;
+        }
+    </style>
+
+    <body>
+        <div class="header">Header page</div>
+        <div class="content">
+            <div class="header_content">
+                <h2>Header content</h2>
+            </div>
+            
+            <div class="main_content">
+                <h1>Main content</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, ratione vero esse illo est, debitis saepe unde culpa quis earum rem fuga odio, blanditiis corporis cum libero? Doloremque ullam vitae vero aliquam dolores excepturi amet, quo quas delectus eos libero, velit corrupti in pariatur minus voluptatem, consequuntur tenetur impedit deleniti optio at explicabo nihil iusto fugit! Necessitatibus, exercitationem tempora deserunt consectetur fuga nihil eum pariatur sint excepturi maxime mollitia nobis non quod accusantium aperiam eos. Cupiditate soluta veniam ullam quae, quos ipsum error obcaecati recusandae alias ipsam rerum, voluptate atque quaerat repellendus laboriosam pariatur nobis suscipit dolore quo quibusdam. Blanditiis!</p>
+            </div>
+
+            <div class="sub_content">Sub content 1</div>
+            <div class="sub_content">Sub content 2</div>
+            <div class="sub_content">Sub content 3</div>
+            <div class="sub_content">Sub content 4</div>
+        </div>
+        <div class="footer">Footer content</div>
+    </body>
+</html>
