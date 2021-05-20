@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml>
+<Document>
+	<name>myhome</name>
+	<Placemark>
+		<Point>
+			<coordinates>200.4654578891200,54544</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

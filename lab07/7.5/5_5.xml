@@ -1,0 +1,27 @@
+1. Ưu điểm lớn nhất của XML là sự độc lập. 
+    XML được sử dụng để mô tả dữ liệu dưới dạng text, nên hầu hết các phần mềm hay các chương trình bình thường đều có thể đọc được chúng.
+    XML có thể đọc và phân tích nguồn dữ liệu khá dễ dàng nên nó được sử dụng với mục đích chính là trao đổi dữ liệu giữa các chương trình,
+    các hệ thống khác nhau. XML được sử dụng cho Remote Procedure Calls nhằm phục vụ cho các dịch vụ của website.
+    
+    + XBRL:
+        - Là một khuôn khổ toàn cầu và có sẵn miễn phí để trao đổi thông tin kinh doanh. XBRL cho phép thể hiện ý nghĩa ngữ nghĩa thường được yêu cầu trong báo cáo kinh doanh .
+        - Ngôn ngữ dựa trên XML và sử dụng cú pháp XML và các công nghệ XML liên quan như XML Schema, XLink , XPath và Không gian tên . 
+        - Đặc tả XBRL được phát triển và xuất bản bởi XBRL International , Inc. (XII).
+
+    + ATOM: 
+    - Một phần mềm mã nguồn mở dùng để soạn thảo văn bản.
+    - Atom là một khoản đầu tư dài hạn và GitHub sẽ tiếp tục hỗ trợ sự phát triển của nó với một nhóm chuyên dụng trong tương lai.
+
+2. Elements vs attributes:
+    -Cách 1:
+        <element1 att="value1">
+            <element2>value2</element2>
+        </element1>
+    -Cách 2:
+        <element1>
+            <element1>value1</element1>
+            <element2>value2</element2>
+        </element1>
+
+    Cả 2 cách trên đều cho ra cùng 1 kết quả và không bắt buộc phải chọn cách nào.
+    Tuy nhiên không nên để nhiều attributes vào trong cùng 1 element
